@@ -22,3 +22,4 @@ python train.py \
 	--ema_decay 0.99\
 ```
 
+If you encounter any error, there are some helpful discussions in the **issue** tag.
