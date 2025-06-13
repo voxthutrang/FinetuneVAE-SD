@@ -241,6 +241,8 @@ def argument_inputs():
                         default='./vae_finetune',)
     parser.add_argument('--note', type=str, 
                         default='',)
+    parser.add_argument("--ckpt_path", type=str,
+        default="./sd_model/v1-5-pruned.ckpt",)
     args =  parser.parse_args()
     # args.n_gpus = len(os.environ["CUDA_VISIBLE_DEVICES"].split(","))
     args.n_gpus = len(os.environ.get("CUDA_VISIBLE_DEVICES", "").split(",")) if "CUDA_VISIBLE_DEVICES" in os.environ else 0
@@ -257,7 +259,7 @@ if __name__ == '__main__':
 
     config = OmegaConf.load("./vae_config.yaml")
     vae_config = config.model
-    input_path = "./sd_model/v1-5-pruned.ckpt"
+    input_path = args.ckpt_path
     vae_weight = get_vae_weights(input_path)
     data_module = DataModule(args.data_dir, 
                              batch_size=args.batch_size, 
