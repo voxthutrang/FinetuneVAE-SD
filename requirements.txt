@@ -1,0 +1,12 @@
+omegaconf
+numpy
+tqdm
+torch
+pytorch-lightning
+torchvision
+wandb
+Pillow
+lpips
+omegaconf
+einops
+git+https://github.com/CompVis/latent-diffusion.git
